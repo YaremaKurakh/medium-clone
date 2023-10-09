@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Store } from "@ngrx/store";
+import { registerAction } from "../../store/actions/register.action";
 
 @Component({
   selector: "mc-register",
@@ -9,7 +11,10 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 export class RegisterComponent implements OnInit {
   form!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private store: Store,
+  ) {}
 
   ngOnInit() {
     this.initializeForm();
@@ -17,7 +22,7 @@ export class RegisterComponent implements OnInit {
 
   initializeForm() {
     this.form = this.fb.group({
-      userName: ["", Validators.required],
+      username: ["", Validators.required],
       email: "",
       password: "",
     });
@@ -25,5 +30,6 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     console.log(this.form.value);
+    this.store.dispatch(registerAction(this.form.value));
   }
 }
