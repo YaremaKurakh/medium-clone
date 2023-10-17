@@ -14,6 +14,8 @@ import { PersistenceService } from "./shared/services/persistence.service";
 import { Authinterceptor } from "./shared/services/authinterceptor.service";
 import { GlobalFeedModule } from "./globalFeed/globalFeed.module";
 import { routerReducer, StoreRouterConnectingModule } from "@ngrx/router-store";
+import { YourFeedModule } from "./yourFeed/yourFeed.module";
+import { TagFeedModule } from "./tagFeed/tagFeed.module";
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -30,6 +32,8 @@ import { routerReducer, StoreRouterConnectingModule } from "@ngrx/router-store";
     StoreRouterConnectingModule.forRoot(),
     topBarModule,
     GlobalFeedModule,
+    YourFeedModule,
+    TagFeedModule,
   ],
   providers: [
     PersistenceService,
