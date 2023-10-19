@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 
 @Component({
-  selector: "mc-tag-feed",
+  selector: "mc-tag-article",
   templateUrl: "/tagFeed.component.html",
   styleUrls: ["tagFeed.component.scss"],
 })
